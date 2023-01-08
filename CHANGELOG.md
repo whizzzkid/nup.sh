@@ -1,6 +1,14 @@
 # Changelog
 
 ## What's Changed
+* feat: dependabot location fixed by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/9
+
+
+**Full Changelog**: https://github.com/whizzzkid/nup.sh/compare/v0.1.0...v0.2.0
+
+## Changelog
+
+## What's Changed
 * feat: dependabot by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/7
 
 
