@@ -1,0 +1,53 @@
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Build and Publish to NPM
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  pages: write
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.release.outputs.release_created }}
+    steps:
+      # Create Release PR
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          token: ${{ secrets.GH_PAT }}
+          release-type: node
+          package-name: npm.sh
+          changelog-notes-type: github
+          extra-files: |
+            README.md
+      # Checkout Code
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node
+      - name: Build on Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      # Run BUILD
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm run build
+        if: ${{ steps.release.outputs.release_created }}
+      # Push NPM Packgae
+      - run: npm publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

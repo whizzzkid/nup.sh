@@ -1,0 +1,29 @@
+{
+  "name": "nup.sh",
+  "version": "0.0.0",
+  "description": "NPM Update Everything",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whizzzkid/nup.sh.git"
+  },
+  "keywords": [
+    "NPM",
+    "Update",
+    "Path",
+    "Dependency",
+    "of",
+    "Dependency",
+    "Dependency",
+    "Management"
+  ],
+  "author": "Whizzzkid (me@nishantarora.in)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/whizzzkid/nup.sh/issues"
+  },
+  "homepage": "https://github.com/whizzzkid/nup.sh#readme"
+}
