@@ -30,8 +30,6 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           release-type: node
           package-name: nup.sh
-          release-as: "0.0.1"
-          bootstrap-sha: "68a4bb15cd21bc7255866ca8d3577fede766787b"
           changelog-notes-type: github
           extra-files: |
             README.md
