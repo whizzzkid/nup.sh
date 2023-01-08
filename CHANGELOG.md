@@ -1,6 +1,14 @@
 # Changelog
 
 ## What's Changed
+* feat: dependabot by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/7
+
+
+**Full Changelog**: https://github.com/whizzzkid/nup.sh/compare/v0.0.1...v0.1.0
+
+## Changelog
+
+## What's Changed
 * feat: forcing update by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/5
 
 
