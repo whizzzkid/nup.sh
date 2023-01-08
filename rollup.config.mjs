@@ -13,16 +13,13 @@ const config = [{
     plugins: [
         autoExternal(),
         json(),
-        typescript()
+        typescript(),
+        terser.default({
+            format: {
+                comments: false
+            }
+        })
     ]
 }];
-
-if (process.env.NODE_ENV !== 'development') {
-    config.forEach(conf => conf.plugins.push(terser.default({
-        format: {
-            comments: false
-        },
-    })));
-}
 
 export default config;
