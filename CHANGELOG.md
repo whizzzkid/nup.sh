@@ -1,6 +1,14 @@
 # Changelog
 
 ## What's Changed
+* feat: Adding better messages and update plans by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/11
+
+
+**Full Changelog**: https://github.com/whizzzkid/nup.sh/compare/v0.2.0...v0.3.0
+
+## Changelog
+
+## What's Changed
 * feat: dependabot location fixed by @whizzzkid in https://github.com/whizzzkid/nup.sh/pull/9
 
 
