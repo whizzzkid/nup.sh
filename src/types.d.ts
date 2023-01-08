@@ -16,3 +16,8 @@ export type rootPkgInfo = {
     name: string,
     dependencies?: dependencies;
 }
+
+export type pkg = {
+    name: string,
+    version: string
+}
