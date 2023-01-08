@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "description": "NPM Update Everything",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "test"
+  "bin": {
+    "nup.sh": "./dist/index.js"
   },
+  "scripts": {
+    "start": "npm run build && ./dist/index.js",
+    "build": "rm -rf ./dist && rollup -c --bundleConfigAsCjs && chmod +x ./dist/index.js"
+  },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/whizzzkid/nup.sh.git"
@@ -25,5 +30,22 @@
   "bugs": {
     "url": "https://github.com/whizzzkid/nup.sh/issues"
   },
-  "homepage": "https://github.com/whizzzkid/nup.sh#readme"
+  "homepage": "https://github.com/whizzzkid/nup.sh#readme",
+  "dependencies": {
+    "figlet": "1.5.2",
+    "ora": "6.1.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "6.0.0",
+    "@rollup/plugin-terser": "0.3.0",
+    "@rollup/plugin-typescript": "11.0.0",
+    "@types/figlet": "^1.5.5",
+    "@types/node": "18.11.18",
+    "npm-watch": "0.11.0",
+    "rollup": "3.9.1",
+    "rollup-plugin-auto-external": "2.0.0",
+    "rollup-plugin-node-globals": "1.4.0",
+    "tslib": "2.4.1",
+    "typescript": "4.9.4"
+  }
 }
