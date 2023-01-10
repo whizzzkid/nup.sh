@@ -1,7 +1,7 @@
 # nup.sh - NPM Update Plan
 
-<img src="https://github.com/whizzzkid/nup.sh/actions/workflows/deploy.yaml/badge.svg">
-<img src="https://img.shields.io/npm/dm/nup.sh?label=npm-downloads&style=flat-square">
+<a href="https://github.com/whizzzkid/nup.sh" target="_blank"><img src="https://github.com/whizzzkid/nup.sh/actions/workflows/deploy.yaml/badge.svg"></a>
+<a href="https://www.npmjs.com/package/nup.sh" target="_blank"><img src="https://img.shields.io/npm/dm/nup.sh?label=npm-downloads&style=flat-square"></a>
 
 Update npm packages and their dependencies (and their dependencies) the smart way.
 
@@ -29,7 +29,7 @@ $ nup.sh multiformats
  | '_ \| | | | '_ \ / __| '_ \
  | | | | |_| | |_) |\__ \ | | |
  |_| |_|\__,_| .__(_)___/_| |_|
-             |_|                v0.3.0
+             |_|                v0.4.0
 
 
 A new version of nup.sh is available!
@@ -59,7 +59,7 @@ Phase 3:
 - [] @libp2p/interop@3.0.4
 ```
 
-## Vision - Not Implemented Yet!
+## Vision - WIP!
 
 - Automate updates to dependencies of dependencies
 - Find breaking links between grand-children dependencies
@@ -67,4 +67,4 @@ Phase 3:
 
 ## Author
 
-Whizzzkid (me@nishantarora.in)
+[whizzzkid](http://whizzzkid.dev)
