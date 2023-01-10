@@ -1,5 +1,5 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Build and Publish to NPM
+name: Build and Publish
 
 on:
   # Runs on pushes targeting the default branch
@@ -9,17 +9,18 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  pages: write
-  id-token: write
-  contents: write
-  pull-requests: write
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   # Build job
-  build:
+  semver:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     outputs:
       released: ${{ steps.release.outputs.release_created }}
     steps:
@@ -33,6 +34,12 @@ jobs:
           changelog-notes-type: github
           extra-files: |
             README.md
+
+  build:
+    if: ${{ needs.semver.outputs.released }}
+    runs-on: ubuntu-latest
+    needs: semver
+    steps:
       # Checkout Code
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,11 +50,48 @@ jobs:
           node-version: 18
       # Run BUILD
       - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
       - run: npm run build
-        if: ${{ steps.release.outputs.release_created }}
       # Push NPM Packgae
       - run: npm publish
-        if: ${{ steps.release.outputs.release_created }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # Deployment job
+  deploy:
+    if: ${{ needs.semver.outputs.released }}
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - semver
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Checkout Code
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup GH Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      # Setup Node
+      - name: Build on Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Convert ReadMe to HTML
+        uses: jaywcjlove/markdown-to-html-cli@main
+        with:
+          source: README.md
+          output: public/index.html
+          description: "Nup.sh: NPM Update Plan"
+          github-corners: ${{ github.server_url }}/${{ github.repository }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './public/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

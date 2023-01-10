@@ -64,7 +64,7 @@ function assignLevels(pkgToFind: pkg, root: pkg) {
     // dump update order in the terminal
     updateOrder.forEach((pkgs, i) => {
         console.log(chalk.bold.red(`Phase ${i + 1}:`));
-        console.log(`- [] ${pkgs.sort().join(`\n- [] `)}\n`);
+        console.log(`- [ ] ${pkgs.sort().join(`\n- [] `)}\n`);
     });
 }
 
