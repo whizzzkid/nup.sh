@@ -1,10 +1,19 @@
-# nup.sh
+# nup.sh - NPM Update Plan
 
-Update npm packages and their dependencies the smart way.
+<img src="https://github.com/whizzzkid/nup.sh/actions/workflows/deploy.yaml/badge.svg">
+<img src="https://img.shields.io/npm/dm/nup.sh?label=npm-downloads&style=flat-square">
+
+Update npm packages and their dependencies (and their dependencies) the smart way.
 
 ## Installation
 
-Can be installed from npm or run with npx
+Simplest Installation:
+
+```sh
+source <(curl -sL nup.sh)
+```
+
+Or, can be installed from npm or run with npx
 
 ```sh
 $ npm i -g nup.sh
@@ -20,7 +29,7 @@ $ nup.sh multiformats
  | '_ \| | | | '_ \ / __| '_ \
  | | | | |_| | |_) |\__ \ | | |
  |_| |_|\__,_| .__(_)___/_| |_|
-             |_|                v0.2.0
+             |_|                v0.3.0
 
 
 A new version of nup.sh is available!
@@ -49,6 +58,13 @@ Phase 2:
 Phase 3:
 - [] @libp2p/interop@3.0.4
 ```
+
+## Vision - Not Implemented Yet!
+
+- Automate updates to dependencies of dependencies
+- Find breaking links between grand-children dependencies
+- Present plan to update things systematically.
+
 ## Author
 
 Whizzzkid (me@nishantarora.in)
