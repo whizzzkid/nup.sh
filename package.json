@@ -47,7 +47,7 @@
     "@types/node": "18.11.18",
     "@types/semver": "7.3.13",
     "npm-watch": "0.11.0",
-    "rollup": "3.9.1",
+    "rollup": "3.18.0",
     "rollup-plugin-auto-external": "2.0.0",
     "rollup-plugin-node-globals": "1.4.0",
     "tslib": "2.4.1",
