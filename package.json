@@ -33,7 +33,7 @@
   "homepage": "https://github.com/whizzzkid/nup.sh#readme",
   "dependencies": {
     "chalk": "5.2.0",
-    "figlet": "1.5.2",
+    "figlet": "1.9.4",
     "ora": "6.1.2",
     "parse-package-name": "1.0.0",
     "semver": "7.7.3"
